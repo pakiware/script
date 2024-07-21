@@ -281,7 +281,7 @@ do
             Configuration.AimKey = Value
         end
     })
-    if AimKeybind.Value == "RMB" then
+    if AimKeybind.Value == "LMB" then
         Configuration.AimKey = Enum.UserInputType.MouseButton2
     else
         Configuration.AimKey = Enum.KeyCode[AimKeybind.Value]
@@ -466,7 +466,7 @@ do
                 Configuration.TriggerKey = Value
             end
         })
-        if TriggerKeybind.Value == "RMB" then
+        if TriggerKeybind.Value == "LMB" then
             Configuration.TriggerKey = Enum.UserInputType.MouseButton2
         else
             Configuration.TriggerKey = Enum.KeyCode[TriggerKeybind.Value]
@@ -977,7 +977,7 @@ do
         Description = "Changes the Minimize Key",
         Default = Fluent.MinimizeKey,
         ChangedCallback = function(Value)
-            UISettings.MinimizeKey = Value ~= Enum.UserInputType.MouseButton2 and UserInputService:GetStringForKeyCode(Value) or "RMB"
+            UISettings.MinimizeKey = Value ~= Enum.UserInputType.MouseButton2 and UserInputService:GetStringForKeyCode(Value) or "LMB"
             InterfaceManager:ExportSettings()
         end
     })
@@ -1009,7 +1009,7 @@ do
                     local ExportedConfiguration = { __LAST_UPDATED__ = os.date() }
                     for Key, Value in next, Configuration do
                         if Key == "AimKey" or Key == "TriggerKey" then
-                            ExportedConfiguration[Key] = Value ~= Enum.UserInputType.MouseButton2 and UserInputService:GetStringForKeyCode(Value) or "RMB"
+                            ExportedConfiguration[Key] = Value ~= Enum.UserInputType.MouseButton2 and UserInputService:GetStringForKeyCode(Value) or "LMB"
                         elseif Key == "FoVColour" or Key == "ESPColour" then
                             ExportedConfiguration[Key] = PackColour(Value)
                         else
